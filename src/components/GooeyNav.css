@@ -1,0 +1,210 @@
+.gooey-nav-container {
+  position: relative;
+  --color-1: var(--color-accent);
+  --color-2: var(--color-primary);
+  --color-3: var(--color-accent-hover);
+  --color-4: #ffffff;
+}
+
+.gooey-nav-container nav {
+  display: flex;
+  position: relative;
+  transform: translate3d(0, 0, 0.01px);
+}
+
+.gooey-nav-container nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 3;
+  color: var(--color-primary);
+}
+
+.gooey-nav-container nav ul li {
+  border-radius: var(--radius-sm);
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 0.5px 1.5px transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.gooey-nav-container nav ul li a {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  color: inherit;
+}
+
+.gooey-nav-container nav ul li:focus-within:has(:focus-visible) {
+  box-shadow: 0 0 0.5px 1.5px var(--color-accent);
+}
+
+.gooey-nav-container nav ul li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.gooey-nav-container nav ul li.active {
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.gooey-nav-container nav ul li.active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gooey-nav-container .effect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 1;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+.gooey-nav-container .effect.text {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.gooey-nav-container .effect.text.active {
+  color: #ffffff;
+}
+
+.gooey-nav-container .effect.filter {
+  filter: blur(7px) contrast(100) blur(0);
+  mix-blend-mode: multiply;
+}
+
+.gooey-nav-container .effect.filter::before {
+  content: '';
+  position: absolute;
+  inset: -75px;
+  z-index: -2;
+  background: #ffffff;
+}
+
+.gooey-nav-container .effect.filter::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  transform: scale(0);
+  opacity: 0;
+  z-index: -1;
+  border-radius: var(--radius-sm);
+}
+
+.gooey-nav-container .effect.active::after {
+  animation: gooeyPill 0.3s ease both;
+}
+
+@keyframes gooeyPill {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.gooey-nav-container .particle,
+.gooey-nav-container .point {
+  display: block;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  transform-origin: center;
+}
+
+.gooey-nav-container .particle {
+  --time: 5s;
+  position: absolute;
+  top: calc(50% - 8px);
+  left: calc(50% - 8px);
+  animation: gooeyParticle calc(var(--time)) ease 1 -350ms;
+}
+
+.gooey-nav-container .point {
+  background: var(--color);
+  opacity: 1;
+  animation: gooeyPoint calc(var(--time)) ease 1 -350ms;
+}
+
+@keyframes gooeyParticle {
+  0% {
+    transform: rotate(0deg) translate(calc(var(--start-x)), calc(var(--start-y)));
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+
+  70% {
+    transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2));
+    opacity: 1;
+    animation-timing-function: ease;
+  }
+
+  85% {
+    transform: rotate(calc(var(--rotate) * 0.66)) translate(calc(var(--end-x)), calc(var(--end-y)));
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(calc(var(--rotate) * 1.2)) translate(calc(var(--end-x) * 0.5), calc(var(--end-y) * 0.5));
+    opacity: 1;
+  }
+}
+
+@keyframes gooeyPoint {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+
+  25% {
+    transform: scale(calc(var(--scale) * 0.25));
+  }
+
+  38% {
+    opacity: 1;
+  }
+
+  65% {
+    transform: scale(var(--scale));
+    opacity: 1;
+    animation-timing-function: ease;
+  }
+
+  85% {
+    transform: scale(var(--scale));
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

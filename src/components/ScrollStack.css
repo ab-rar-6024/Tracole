@@ -1,0 +1,143 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.scroll-stack-inner {
+  padding: 20vh 5rem 50rem;
+  min-height: 100vh;
+}
+
+.scroll-stack-card-wrapper {
+  position: relative;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  height: 20rem;
+  width: 100%;
+  margin: 30px 0;
+  padding: 3rem;
+  border-radius: 40px;
+  box-sizing: border-box;
+  /* Improve mobile performance */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: relative;
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}
+
+/* --- Tracole integration overrides: embed the stack in normal page flow
+   (driven by window scroll) instead of the demo's dedicated full-viewport
+   scroll panel. --- */
+.products-stack.scroll-stack-scroller {
+  height: auto;
+  overflow: visible;
+  will-change: auto;
+}
+
+.products-stack .scroll-stack-inner {
+  padding: 2rem 0 8rem;
+  min-height: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.product-stack-card {
+  height: auto;
+  min-height: 260px;
+  padding: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+}
+
+.product-stack-content {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  height: 100%;
+}
+
+.product-stack-img-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 260px;
+}
+
+.product-stack-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-stack-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(9, 13, 22, 0.75);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 99px;
+}
+
+.product-stack-body {
+  flex: 1;
+  padding: 2rem 2.25rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-stack-body h3 {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 0.65rem;
+}
+
+.product-stack-body p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.15rem;
+}
+
+@media (max-width: 700px) {
+  .product-stack-content {
+    flex-direction: column;
+  }
+
+  .product-stack-img-wrapper {
+    width: 100%;
+    height: 180px;
+  }
+
+  .product-stack-body {
+    padding: 1.5rem;
+  }
+}

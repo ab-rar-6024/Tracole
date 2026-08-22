@@ -1,0 +1,91 @@
+.hover-reveal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .hover-reveal-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.hover-reveal-card {
+  position: relative;
+  height: 18rem;
+  border: none;
+  padding: 0;
+  background-color: var(--color-primary);
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 20px 45px -12px rgba(9, 13, 22, 0.45);
+  transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .hover-reveal-card {
+    height: 24rem;
+  }
+}
+
+.hover-reveal-card.is-active {
+  box-shadow: inset 0 0 0 3px var(--color-accent), 0 20px 45px -12px rgba(9, 13, 22, 0.45);
+}
+
+/* Dim + soften every card except the one being hovered/focused. */
+.hover-reveal-grid:hover .hover-reveal-card:not(:hover):not(:focus-visible) {
+  opacity: 0.55;
+  filter: blur(2px) saturate(0.85);
+  transform: scale(0.97);
+}
+
+.hover-reveal-card:hover,
+.hover-reveal-card:focus-visible {
+  transform: scale(1.04);
+  opacity: 1;
+  filter: none;
+  z-index: 2;
+}
+
+.hover-reveal-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-accent), 0 20px 45px -12px rgba(9, 13, 22, 0.45);
+}
+
+.hover-reveal-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(6, 10, 18, 0.88) 0%, rgba(6, 10, 18, 0.35) 55%, transparent 100%);
+}
+
+.hover-reveal-content {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.5rem 1.25rem 1.25rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hover-reveal-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hover-reveal-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #ffffff;
+}

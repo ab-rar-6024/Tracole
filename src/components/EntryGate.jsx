@@ -12,11 +12,11 @@ const EntryGate = ({ onSelect }) => {
     setTimeout(() => {
       if (path) navigate(path);
       onSelect();
-    }, 450);
+    }, 650);
   };
 
   return (
-    <div className={`entry-gate ${closing ? 'fade-out' : ''}`}>
+    <div className={`entry-gate ${closing ? 'is-transitioning' : ''}`}>
       <div className="entry-gate-bg">
         <button
           type="button"

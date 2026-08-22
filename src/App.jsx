@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Preloader from './components/Preloader';
 import EntryGate from './components/EntryGate';
 import HeroVideoBackground from './components/HeroVideoBackground';
@@ -16,6 +16,7 @@ import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
 import MobilityPage from './pages/MobilityPage';
 import MobilityContactPage from './pages/MobilityContactPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   const [gatePassed, setGatePassed] = useState(false);
@@ -70,7 +71,7 @@ function App() {
           <Route path="/Home/Privacy" element={<PrivacyPage />} />
 
           {/* Fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />

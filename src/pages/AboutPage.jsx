@@ -216,9 +216,9 @@ const AboutPage = () => {
           <div className="grid-2-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
             <div>
               <span className="section-subtitle about-info-text-animate">About Us</span>
-              <h2 className="section-title about-info-text-animate">A Benchmark in Road Safety Manufacturing</h2>
+              <h2 className="section-title about-info-text-animate">Engineering India's Safer, Smarter Mobility</h2>
               <p className="about-info-text-animate" style={{ fontSize: '1.05rem', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
-                At Tracole Technologies Pvt. Ltd., we are committed to making our roads safer for everyone. Our range of road safety products is designed to enhance visibility, reduce accidents, and ultimately save lives. Whether you're a government agency, a construction company, a transportation authority, or an individual looking to improve road safety, we have the solutions you need. Tracole Technologies Pvt. Ltd. is an ISO 9001-2015 certified company for manufacturing various safety products such and have excellent experience in manufacturing, embossing of HSRP plates, Reflective Tape, TrafficJet Print System, Permanent Traffic Control Sheeting, Temporary Traffic Control Sheeting, Protective Overlay Films. Road safety products are essential components of a comprehensive strategy to reduce accidents, save lives, and create safer roadways for everyone. These tools and devices work together to enhance visibility, regulate traffic, and encourage responsible driving behavior, contributing to overall road safety.
+                At Tracole Technologies Pvt. Ltd., we are a future-focused mobility engineering and technology company building safer, smarter and more connected transportation across India. Our work spans three pillars: Mobility — automotive engineering, cybersecurity consulting and connected vehicle platforms for OEMs and Tier-1 suppliers; IoT — AIS-140 certified fleet tracking, AI-assisted vehicle inspection and automated driver-testing infrastructure for governments and fleet operators; and Road Safety — ISO 9001:2015 certified manufacturing of HSRP plates, reflective sheeting, TrafficJet print systems and protective overlay films. Whether you're an OEM, a government transport authority, a fleet operator or a road safety agency, we have the engineering and infrastructure to help you get there safely.
               </p>
             </div>
 
@@ -306,7 +306,7 @@ const AboutPage = () => {
                 </div>
                 <h3 className="philosophy-card-title">VISION</h3>
                 <p className="philosophy-card-desc">
-                  "We dedicate ourselves to producing products that not only meet industry standards but redefine them, ensuring the safety of every journey, one reflective tape at a time."
+                  "To be India's most trusted mobility technology company — engineering safer vehicles, smarter infrastructure and more visible roads, and redefining industry standards one innovation at a time."
                 </p>
               </div>
 
@@ -317,7 +317,7 @@ const AboutPage = () => {
                 </div>
                 <h3 className="philosophy-card-title">MISSION</h3>
                 <p className="philosophy-card-desc">
-                  "Our vision is to be the trailblazing force behind a world where TrafficJet reflective tape doesn't just illuminate roads; it lights up the path to a safer, more secure future for all."
+                  "Our mission is to be the driving force behind safer journeys — delivering automotive cybersecurity, connected vehicle platforms, intelligent transportation systems and certified road safety infrastructure that protect people and vehicles across India."
                 </p>
               </div>
             </div>

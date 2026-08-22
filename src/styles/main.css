@@ -825,6 +825,39 @@ h1, h2, h3, h4, h5, h6 {
   .entry-gate-bg-half video {
     opacity: 0.6;
   }
+
+  .entry-gate-bg {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .entry-gate-bg-half {
+    width: 100%;
+    height: 41%;
+  }
+
+  .entry-gate-divider {
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    height: 4px;
+    transform: translateY(-50%);
+  }
+
+  .entry-gate-divider::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    transform: translateY(-50%);
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 163, 224, 0.4) 50%, transparent 100%);
+  }
+
+  .entry-gate-half-content {
+    padding: 0 6% 1.5rem;
+  }
 }
 
 .entry-gate-divider {

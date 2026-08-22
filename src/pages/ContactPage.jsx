@@ -184,27 +184,6 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Noida Corporate Office */}
-              <div className="location-card" style={{ borderLeftColor: 'var(--color-primary)' }}>
-                <h3 className="location-title">
-                  <MapPin size={22} style={{ color: 'var(--color-primary)' }} />
-                  Corporate Office (Noida)
-                </h3>
-                <p className="location-address">
-                  {COMPANY_DETAILS.noidaOfficeAddress}
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.75rem' }}>
-                  <a href={`tel:${COMPANY_DETAILS.noidaPhone}`} className="location-phone">
-                    <Phone size={16} />
-                    {COMPANY_DETAILS.noidaPhone}
-                  </a>
-                  <a href={`mailto:${COMPANY_DETAILS.email}`} className="location-phone">
-                    <Mail size={16} />
-                    {COMPANY_DETAILS.email}
-                  </a>
-                </div>
-              </div>
-
               {/* Interactive Map Component */}
               <div style={{
                 borderRadius: 'var(--radius-sm)',

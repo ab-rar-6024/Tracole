@@ -33,7 +33,7 @@ const EntryGate = ({ onSelect }) => {
               <Car size={26} />
             </span>
             <span className="entry-gate-label">Mobility</span>
-            <span className="entry-gate-desc">Vehicle number plates &amp; HSRP registration</span>
+            <span className="entry-gate-desc">Automotive engineering, connected vehicles &amp; cybersecurity</span>
           </span>
         </button>
 

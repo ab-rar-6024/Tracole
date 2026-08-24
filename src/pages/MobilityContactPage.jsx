@@ -12,14 +12,34 @@ const MobilityContactPage = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(false);
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, source: 'Mobility' })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Contact form submission failed:', err);
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const mapQuery = encodeURIComponent(COMPANY_DETAILS.mobilityOfficeAddress);
@@ -137,8 +157,29 @@ const MobilityContactPage = () => {
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-dark" style={{ width: '100%' }}>
-                    Send Message
+                  {error && (
+                    <div style={{
+                      backgroundColor: '#fef2f2',
+                      border: '1.5px solid #fca5a5',
+                      padding: '1rem 1.25rem',
+                      borderRadius: 'var(--radius-sm)',
+                      marginBottom: '1.25rem'
+                    }}>
+                      <p style={{ color: '#991b1b', fontWeight: 600, marginBottom: '0.25rem' }}>
+                        Our messaging service is temporarily unavailable
+                      </p>
+                      <p style={{ color: '#991b1b', fontSize: '0.9rem' }}>
+                        Please call us directly at{' '}
+                        <a href={`tel:${COMPANY_DETAILS.mobilityPhone}`} style={{ color: '#991b1b', fontWeight: 700, textDecoration: 'underline' }}>
+                          {COMPANY_DETAILS.mobilityPhone}
+                        </a>{' '}
+                        and we'll be happy to help.
+                      </p>
+                    </div>
+                  )}
+
+                  <button type="submit" className="btn btn-dark" style={{ width: '100%' }} disabled={submitting}>
+                    {submitting ? 'Sending...' : 'Send Message'}
                     <Send size={18} />
                   </button>
                 </form>

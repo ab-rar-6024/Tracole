@@ -25,7 +25,7 @@ const EntryGate = ({ onSelect }) => {
           onMouseEnter={() => setHovered('mobility')}
           onMouseLeave={() => setHovered(null)}
         >
-          <video autoPlay loop muted playsInline poster="/images/mobility/automotive-engineering.jpg">
+          <video autoPlay loop muted playsInline preload="auto" poster="/images/mobility/automotive-engineering.jpg">
             <source src="/video/mobility-hero.mp4" type="video/mp4" />
           </video>
           <span className="entry-gate-half-content">
@@ -44,7 +44,7 @@ const EntryGate = ({ onSelect }) => {
           onMouseEnter={() => setHovered('roadSafety')}
           onMouseLeave={() => setHovered(null)}
         >
-          <video autoPlay loop muted playsInline poster="/images/home/homerelf.png">
+          <video autoPlay loop muted playsInline preload="auto" poster="/images/home/homerelf.png">
             <source src="/video/video.mp4" type="video/mp4" />
           </video>
           <span className="entry-gate-half-content">

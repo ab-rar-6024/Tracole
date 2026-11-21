@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Car, ShieldCheck } from 'lucide-react';
 
 const EntryGate = ({ onSelect }) => {
   const [closing, setClosing] = useState(false);
   const [hovered, setHovered] = useState(null);
+  const [mobVideoReady, setMobVideoReady] = useState(false);
+  const [roadVideoReady, setRoadVideoReady] = useState(false);
+  const mobVideoRef = useRef(null);
+  const roadVideoRef = useRef(null);
   const navigate = useNavigate();
 
   const handleChoice = (path) => {
@@ -25,7 +29,20 @@ const EntryGate = ({ onSelect }) => {
           onMouseEnter={() => setHovered('mobility')}
           onMouseLeave={() => setHovered(null)}
         >
-          <video autoPlay loop muted playsInline preload="auto" poster="/images/mobility/automotive-engineering.jpg">
+          <video
+            ref={mobVideoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/images/entry-gate/mobility-frame1.jpg"
+            onPlaying={() => setMobVideoReady(true)}
+            onLoadedData={() => {
+              if (mobVideoRef.current) mobVideoRef.current.play().catch(() => {});
+            }}
+            className={`entry-gate-video ${mobVideoReady ? 'is-playing' : ''}`}
+          >
             <source src="/video/mobility-hero.mp4" type="video/mp4" />
           </video>
           <span className="entry-gate-half-content">
@@ -44,7 +61,20 @@ const EntryGate = ({ onSelect }) => {
           onMouseEnter={() => setHovered('roadSafety')}
           onMouseLeave={() => setHovered(null)}
         >
-          <video autoPlay loop muted playsInline preload="auto" poster="/images/home/homerelf.png">
+          <video
+            ref={roadVideoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/images/entry-gate/roadsafety-frame1.jpg"
+            onPlaying={() => setRoadVideoReady(true)}
+            onLoadedData={() => {
+              if (roadVideoRef.current) roadVideoRef.current.play().catch(() => {});
+            }}
+            className={`entry-gate-video ${roadVideoReady ? 'is-playing' : ''}`}
+          >
             <source src="/video/video.mp4" type="video/mp4" />
           </video>
           <span className="entry-gate-half-content">
